@@ -6,7 +6,9 @@ import * as courseActions from "../actions/courseActions";
 
 const ManageCoursePage = props => {
   const [errors, setErrors] = useState({});
-  const [courses, setCourses] = useState(courseStore.getCourses());
+  const [courses, setCourses] = useState(courseStore.getCourses()); // this allows courses to be initialized to courses in the Flux store
+  // This actually prevents an error from happening on reload
+  // This is because this component later accesses a course by slug
   const [course, setCourse] = useState({
     id: null,
     slug: "",
